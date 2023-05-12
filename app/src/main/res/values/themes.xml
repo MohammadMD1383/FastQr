@@ -1,4 +1,4 @@
-<resources xmlns:tools="http://schemas.android.com/tools">
+<resources>
     <!-- Base application theme. -->
     <style name="Theme.FastQr" parent="Theme.MaterialComponents.DayNight.DarkActionBar">
         <!-- Primary brand color. -->
@@ -12,5 +12,21 @@
         <!-- Status bar color. -->
         <item name="android:statusBarColor">?attr/colorPrimaryVariant</item>
         <!-- Customize your theme here. -->
+    </style>
+
+    <style name="Theme.FastQr.Floating" parent="Theme.FastQr">
+        <item name="android:windowIsTranslucent">true</item>
+        <item name="android:windowBackground">@android:color/transparent</item>
+        <item name="android:windowNoTitle">true</item>
+        <item name="android:windowCloseOnTouchOutside">true</item>
+        <item name="android:windowAnimationStyle">@android:style/Animation.Translucent</item>
+        <item name="android:windowContentOverlay">@null</item>
+        <item name="android:backgroundDimEnabled">true</item>
+        <item name="android:windowIsFloating">true</item>
+        <!-- <item name="android:windowLayoutInDisplayCutoutMode">shortEdges</item> -->
+        <!-- <item name="android:windowInsetBottom">0dp</item> -->
+        <!-- <item name="android:windowInsetLeft">0dp</item> -->
+        <!-- <item name="android:windowInsetRight">0dp</item> -->
+        <!-- <item name="android:windowInsetTop">0dp</item> -->
     </style>
 </resources>
