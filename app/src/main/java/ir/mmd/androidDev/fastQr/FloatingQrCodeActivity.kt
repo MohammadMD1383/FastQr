@@ -5,6 +5,7 @@ import android.content.Intent
 import android.os.Bundle
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
+import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.wrapContentSize
 import androidx.compose.foundation.shape.CircleShape
@@ -16,6 +17,7 @@ import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.setValue
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.StrokeCap
+import androidx.compose.ui.platform.LocalConfiguration
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import ir.mmd.androidDev.fastQr.ui.components.QrCode
@@ -63,7 +65,7 @@ class FloatingQrCodeActivity : ComponentActivity() {
 @Composable
 private fun MainComponent(contents: String?) {
 	if (contents != null) {
-		QrCode(contents = contents, size = 200.dp)
+		QrCode(contents = contents, size = LocalConfiguration.current.screenWidthDp.dp)
 	} else {
 		Surface(
 			shape = CircleShape,
@@ -81,7 +83,9 @@ private fun MainComponent(contents: String?) {
 @Composable
 private fun LightPreview() {
 	FastQrTheme(darkTheme = false) {
-		MainComponent("https://github.com/MohammadMD1383/ScreenTimeoutQuickAction")
+		Surface(modifier = Modifier.fillMaxSize()) {
+			MainComponent("https://github.com/MohammadMD1383/ScreenTimeoutQuickAction")
+		}
 	}
 }
 
@@ -89,6 +93,8 @@ private fun LightPreview() {
 @Composable
 private fun DarkPreview() {
 	FastQrTheme(darkTheme = true) {
-		MainComponent("https://github.com/MohammadMD1383/ScreenTimeoutQuickAction")
+		Surface(modifier = Modifier.fillMaxSize()) {
+			MainComponent("https://github.com/MohammadMD1383/ScreenTimeoutQuickAction")
+		}
 	}
 }
